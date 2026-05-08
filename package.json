@@ -10,9 +10,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^5.2.1",
-    "mongoose": "^9.4.1"
-  }
+    "express-rate-limit": "^8.5.1",
+    "mongoose": "^9.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicoly2002/api1704.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nicoly2002/api1704/issues"
+  },
+  "homepage": "https://github.com/Nicoly2002/api1704#readme",
+  "description": ""
 }

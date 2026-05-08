@@ -1,11 +1,13 @@
 const express = require('express');
 
 const connectDatabase = require('./config/database');
+const limiter = require("./config/security");
 const Pessoa = require('./models/Pessoa');
 
 const app = express();
 const PORT = 3000;
 
+app.use(limiter);
 app.use(express.json());
 
 app.get('/', (req, res) => {
