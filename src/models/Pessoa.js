@@ -7,11 +7,11 @@ const pessoaSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    RA: {
+    curso: {
       type: String,
       required: true,
       trim: true,
-      unique: true, 
+
     },
   },
   {
