@@ -50,11 +50,24 @@ app.post('/pessoas', async (req, res) => {
     });
   }
 });
-//put
+// PUT - versão melhorada
 app.put('/pessoas/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { nome, curso } = req.body;
+
+    // Verifica se o ID é válido (para MongoDB)
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ 
+        mensagem: 'ID inválido. O ID deve ter 24 caracteres hexadecimais.' 
+      });
+    }
+
+    if (!nome || !curso) {
+      return res.status(400).json({
+        mensagem: 'Os campos nome e curso são obrigatórios.',
+      });
+    }
 
     const pessoaAtualizada = await Pessoa.findByIdAndUpdate(
       id,
@@ -75,10 +88,18 @@ app.put('/pessoas/:id', async (req, res) => {
     });
   }
 });
-//delete
+
+// DELETE - versão melhorada
 app.delete('/pessoas/:id', async (req, res) => {
   try {
     const { id } = req.params;
+
+    // Verifica se o ID é válido (para MongoDB)
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ 
+        mensagem: 'ID inválido. O ID deve ter 24 caracteres hexadecimais.' 
+      });
+    }
 
     const pessoaDeletada = await Pessoa.findByIdAndDelete(id);
 
