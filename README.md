@@ -11,3 +11,5 @@ Para rodar os scripts:
 2 digitar: Set-ExecutionPolicy RemoteSigned
 
 3 confirmar com "S"
+
+Vs code: Thunder client
